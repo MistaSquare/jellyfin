@@ -1251,6 +1251,7 @@ namespace Emby.Server.Implementations.Dto
             }
 
             dto.ChannelId = item.ChannelId;
+            dto.ChannelGroup = item.ChannelGroup;
 
             if (item.SourceType == SourceType.Channel)
             {

@@ -792,5 +792,11 @@ namespace MediaBrowser.Model.Dto
         /// </summary>
         /// <value>The current program.</value>
         public BaseItemDto CurrentProgram { get; set; }
+
+        /// <summary>
+        /// Gets or sets channel group.
+        /// </summary>
+        /// <value>The channel group.</value>
+        public string ChannelGroup { get; set; }
     }
 }

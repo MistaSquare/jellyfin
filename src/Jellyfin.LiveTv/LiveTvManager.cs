@@ -142,6 +142,7 @@ namespace Jellyfin.LiveTv
                 IsLiked = query.IsLiked,
                 StartIndex = query.StartIndex,
                 Limit = query.Limit,
+                ChannelGroups = query.ChannelGroups,
                 DtoOptions = dtoOptions
             };
 
