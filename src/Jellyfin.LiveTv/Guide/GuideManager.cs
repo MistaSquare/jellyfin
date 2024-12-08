@@ -377,6 +377,7 @@ public class GuideManager : IGuideManager
             item = new LiveTvChannel
             {
                 Name = channelInfo.Name,
+                ChannelGroup = channelInfo.ChannelGroup,
                 Id = id,
                 DateCreated = DateTime.UtcNow
             };

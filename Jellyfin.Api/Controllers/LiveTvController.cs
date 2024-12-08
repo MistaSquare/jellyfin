@@ -132,6 +132,7 @@ public class LiveTvController : BaseJellyfinApiController
     /// <param name="imageTypeLimit">Optional. The max number of images to return, per image type.</param>
     /// <param name="enableImageTypes">"Optional. The image types to include in the output.</param>
     /// <param name="fields">Optional. Specify additional fields of information to return in the output.</param>
+    /// <param name="channelGroups">Optional. If specified, results will be filtered based on group. This allows multiple, pipe delimited.</param>
     /// <param name="enableUserData">Optional. Include user data.</param>
     /// <param name="sortBy">Optional. Key to sort by.</param>
     /// <param name="sortOrder">Optional. Sort order.</param>
@@ -161,6 +162,7 @@ public class LiveTvController : BaseJellyfinApiController
         [FromQuery] int? imageTypeLimit,
         [FromQuery, ModelBinder(typeof(CommaDelimitedArrayModelBinder))] ImageType[] enableImageTypes,
         [FromQuery, ModelBinder(typeof(CommaDelimitedArrayModelBinder))] ItemFields[] fields,
+        [FromQuery, ModelBinder(typeof(PipeDelimitedArrayModelBinder))] string[] channelGroups,
         [FromQuery] bool? enableUserData,
         [FromQuery, ModelBinder(typeof(CommaDelimitedArrayModelBinder))] ItemSortBy[] sortBy,
         [FromQuery] SortOrder? sortOrder,
@@ -190,7 +192,8 @@ public class LiveTvController : BaseJellyfinApiController
                 IsSports = isSports,
                 SortBy = sortBy,
                 SortOrder = sortOrder ?? SortOrder.Ascending,
-                AddCurrentProgram = addCurrentProgram
+                AddCurrentProgram = addCurrentProgram,
+                ChannelGroups = channelGroups
             },
             dtoOptions,
             CancellationToken.None);
